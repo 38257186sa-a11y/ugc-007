@@ -1,128 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UGC NET Portal</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Courier+Prime&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<!-- Header -->
 <header>
-    <div class="container header-container">
-        <div class="logo">UGC NET Portal</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Syllabus</a></li>
-                <li><a href="#">Mock Tests</a></li>
-                <li><a href="#">Results</a></li>
-                <li><a href="#">Notifications</a></li>
-            </ul>
-            <div class="menu-toggle">&#9776;</div>
-        </nav>
-    </div>
+  <div class="container header-container">
+    <div class="logo">UGC NET Portal</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Syllabus</a></li>
+        <li><a href="#">Mock Tests</a></li>
+        <li><a href="#">Results</a></li>
+        <li><a href="#">Notifications</a></li>
+      </ul>
+      <div class="menu-toggle">&#9776;</div>
+    </nav>
+  </div>
 </header>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container hero-content">
-        <h1>Prepare for UGC NET with Confidence</h1>
-        <p>Practice year-wise questions, take mock tests, and get instant explanations.</p>
-        <a href="#quiz-section" class="btn">Start Practicing</a>
-    </div>
+<section class="hero" style="background: linear-gradient(to right, #6a11cb, #2575fc); color: #fff; text-align:center; padding: 80px 20px;">
+  <h1 style="font-size: 3rem; margin-bottom: 20px;">Prepare for UGC NET with Confidence</h1>
+  <p style="font-size: 1.2rem; margin-bottom: 30px;">Practice year-wise questions, take mock tests, and get instant explanations.</p>
+  <a href="#quiz-section" class="btn" style="padding: 15px 30px; font-size: 1.1rem; background-color: #ff8c42; color: #fff; border-radius: 8px; text-decoration: none;">Start Practicing</a>
 </section>
 
-<!-- Features Section -->
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">Our Resources</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Syllabus</h3>
-                <p>Download complete syllabus for all subjects with detailed topics.</p>
-                <a href="#" class="card-btn">View Syllabus</a>
-            </div>
-            <div class="feature-card">
-                <h3>Mock Tests</h3>
-                <p>Interactive tests with instant scoring to track your progress.</p>
-                <a href="#" class="card-btn">Take Test</a>
-            </div>
-            <div class="feature-card">
-                <h3>Results</h3>
-                <p>Check past exam results and compare your performance.</p>
-                <a href="#" class="card-btn">View Results</a>
-            </div>
-        </div>
-    </div>
+<section class="resources" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:50px 20px;">
+  <div class="card" style="background:#f9d5e5; padding:30px; border-radius:10px; width:250px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+    <h3>Syllabus</h3>
+    <p>Download complete syllabus for all subjects with detailed topics.</p>
+    <a href="#" class="btn" style="background:#6a11cb; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">View Syllabus</a>
+  </div>
+  <div class="card" style="background:#d0f4de; padding:30px; border-radius:10px; width:250px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+    <h3>Mock Tests</h3>
+    <p>Interactive tests with instant scoring to track your progress.</p>
+    <a href="#quiz-section" class="btn" style="background:#2575fc; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">Take Test</a>
+  </div>
+  <div class="card" style="background:#fff3b0; padding:30px; border-radius:10px; width:250px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+    <h3>Results</h3>
+    <p>Check past exam results and compare your performance.</p>
+    <a href="#" class="btn" style="background:#ff8c42; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">View Results</a>
+  </div>
 </section>
 
-<!-- Quiz Section -->
-<section id="quiz-section" class="quiz-container">
-    <aside class="year-selector">
-        <h3>Select Year</h3>
-        <ul id="yearList">
-            <!-- Year links populated via JS -->
-        </ul>
-    </aside>
-
-    <main class="questions-area">
-        <div class="quiz-header">
-            <h2 id="selectedYear">Select a Year to Start</h2>
-            <div id="timer">Time: 00:00</div>
-        </div>
-
-        <div id="questionCard">
-            <p id="questionText">Choose a year to view questions.</p>
-            <ul id="optionsList"></ul>
-            <button id="submitBtn">Submit Answer</button>
-            <div id="explanation"></div>
-        </div>
-    </main>
+<section class="year-selector" style="text-align:center; padding:50px 20px; background:#f0f0f0;">
+  <h2>Select Year</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px;">
+    <button style="padding:10px 20px; border:none; border-radius:5px; background:#6a11cb; color:#fff; cursor:pointer;">2015</button>
+    <button style="padding:10px 20px; border:none; border-radius:5px; background:#2575fc; color:#fff; cursor:pointer;">2016</button>
+    <button style="padding:10px 20px; border:none; border-radius:5px; background:#ff8c42; color:#fff; cursor:pointer;">2017</button>
+    <button style="padding:10px 20px; border:none; border-radius:5px; background:#ff8c42; color:#fff; cursor:pointer;">2018</button>
+    <!-- Add all years -->
+  </div>
 </section>
 
-<!-- Notifications Section -->
-<section class="notifications">
-    <div class="container">
-        <h2 class="section-title">Latest Notifications</h2>
-        <ul>
-            <li><strong>01 Sep 2025:</strong> Exam dates announced.</li>
-            <li><strong>28 Aug 2025:</strong> New mock tests available.</li>
-            <li><strong>25 Aug 2025:</strong> Admit card release update.</li>
-        </ul>
-    </div>
+<section class="notifications" style="padding:50px 20px; text-align:center;">
+  <h2>Latest Notifications</h2>
+  <ul style="list-style:none; padding:0; margin-top:20px;">
+    <li style="background:#f9f9f9; padding:10px; margin:5px auto; width:60%; border-left:5px solid #2575fc;">01 Sep 2025: Exam dates announced.</li>
+    <li style="background:#f9f9f9; padding:10px; margin:5px auto; width:60%; border-left:5px solid #2575fc;">28 Aug 2025: New mock tests available.</li>
+    <li style="background:#f9f9f9; padding:10px; margin:5px auto; width:60%; border-left:5px solid #2575fc;">25 Aug 2025: Admit card release update.</li>
+  </ul>
 </section>
 
-<!-- Footer -->
-<footer>
-    <div class="container footer-grid">
-        <div class="footer-about">
-            <h3>About UGC NET Portal</h3>
-            <p>A comprehensive platform for UGC NET aspirants providing syllabus, mock tests, results, and updates.</p>
-        </div>
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Syllabus</a></li>
-                <li><a href="#">Mock Tests</a></li>
-                <li><a href="#">Results</a></li>
-                <li><a href="#">Notifications</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h3>Contact</h3>
-            <p>Email: support@ugcnetportal.com</p>
-            <p>Phone: +91 12345 67890</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2025 UGC NET Portal. All rights reserved.
-    </div>
+<footer style="background:#333; color:#fff; padding:30px 20px; text-align:center;">
+  <p>&copy; 2025 UGC NET Portal. All rights reserved.</p>
+  <p>Email: support@ugcnetportal.com | Phone: +91 12345 67890</p>
 </footer>
-
-<script src="script.js"></script>
-</body>
-</html>
