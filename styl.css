@@ -1,331 +1,321 @@
-/* Reset and Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Courier Prime', monospace;
-    background-color: #fef6e4; /* Vintage paper feel */
-    color: #333;
-    line-height: 1.6;
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UGC NET Political Science — Test Series</title>
 
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Header */
-header {
-    background: #0c4a6e;
-    color: white;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #f9d342;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-    background: #fdf3e7 url('https://images.unsplash.com/photo-1615484505817-6f7d98330c23?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
-    color: #0c4a6e;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    background: #0c4a6e;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #083d5d;
-}
-
-/* Features Section */
-.features {
-    padding: 60px 0;
-    background: #fff8f0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2em;
-    color: #0c4a6e;
-    margin-bottom: 40px;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.feature-card {
-    background: #fdebd3;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.feature-card h3 {
-    margin-bottom: 15px;
-    color: #0c4a6e;
-}
-
-.feature-card p {
-    margin-bottom: 20px;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.card-btn {
-    display: inline-block;
-    padding: 8px 18px;
-    background: #0c4a6e;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.card-btn:hover {
-    background: #083d5d;
-}
-
-/* Quiz Section */
-.quiz-container {
-    display: flex;
-    padding: 50px 0;
-    gap: 30px;
-}
-
-.year-selector {
-    flex: 1;
-    max-width: 220px;
-    background: #fff3e0;
-    padding: 20px;
-    border-radius: 10px;
-    position: sticky;
-    top: 120px;
-    height: fit-content;
-}
-
-.year-selector h3 {
-    margin-bottom: 15px;
-    color: #0c4a6e;
-}
-
-.year-selector ul {
-    list-style: none;
-}
-
-.year-selector li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #fdebd3;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.year-selector li:hover {
-    background: #fad7a0;
-}
-
-/* Questions Area */
-.questions-area {
-    flex: 3;
-    background: #fff8f0;
-    padding: 25px;
-    border-radius: 12px;
-    min-height: 450px;
-}
-
-.quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#questionCard p {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-#optionsList {
-    list-style: none;
-    margin-top: 10px;
-}
-
-#optionsList li {
-    padding: 12px;
-    margin-bottom: 12px;
-    background: #fdebd3;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#optionsList li:hover {
-    background: #fad7a0;
-}
-
-#submitBtn {
-    margin-top: 15px;
-    padding: 12px 20px;
-    background: #0c4a6e;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#submitBtn:hover {
-    background: #083d5d;
-}
-
-#explanation {
-    margin-top: 20px;
-    padding: 12px;
-    background: #f9e79f;
-    border-radius: 8px;
-}
-
-/* Notifications Section */
-.notifications {
-    padding: 50px 0;
-    background: #fff3e0;
-}
-
-.notifications ul {
-    list-style: disc;
-    margin-left: 25px;
-    color: #333;
-}
-
-.notifications li {
-    margin-bottom: 12px;
-}
-
-/* Footer */
-footer {
-    background: #0c4a6e;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-bottom: 20px;
-}
-
-.footer-grid h3 {
-    margin-bottom: 15px;
-}
-
-.footer-grid p,
-.footer-grid ul li {
-    font-size: 0.95em;
-}
-
-.footer-grid ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-grid ul li a {
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-}
-
-.footer-grid ul li a:hover {
-    color: #f9d342;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9em;
-    padding-top: 10px;
-}
-
-/* Responsive */
-@media(max-width: 992px) {
-    .quiz-container {
-        flex-direction: column;
+  <!-- Basic styling (keeps the look from your CSS, responsive tweaks) -->
+  <style>
+    :root{
+      --bg:#f4f4f9;
+      --card:#fff;
+      --accent-1:#003366;
+      --accent-2:#3182ce;
+      --muted:#666;
+      --success:#059669;
+      --glass: rgba(0,0,0,0.06);
+      --radius:10px;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
     }
-    .year-selector {
-        position: relative;
-        top: 0;
-        margin-bottom: 20px;
-    }
-}
 
-@media(max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; gap: 15px; background: #0c4a6e; padding: 15px; border-radius: 8px; position: absolute; right: 20px; top: 60px; }
-    .nav-links.active { display: flex; }
-    .menu-toggle { display: block; color: white; }
-}
+    html,body{height:100%;margin:0;background:var(--bg);color:#222;}
+    a{color:inherit;text-decoration:none}
+
+    header{
+      background: linear-gradient(135deg,var(--accent-1),#0066cc);
+      color:#fff;
+      padding:18px 16px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:90;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;opacity:0.95}
+
+    .nav {
+      margin-left:auto;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* mobile menu toggle */
+    .menu-toggle{
+      display:none;
+      background:transparent;border:0;color:#fff;font-size:16px;
+      padding:8px;border-radius:8px;
+    }
+    .menu-toggle:focus{outline:2px solid rgba(255,255,255,0.2)}
+
+    .nav-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .nav-links a{
+      padding:8px 12px;border-radius:8px;background:transparent;color:#fff;font-weight:600;font-size:13px;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,0.06)}
+
+    /* top controls area */
+    .top-controls{
+      width:95%;
+      max-width:1200px;
+      margin:18px auto 4px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .timer-card{
+      background:var(--card);
+      padding:10px 14px;border-radius:8px;box-shadow:0 2px 8px var(--glass);
+      display:flex;gap:8px;align-items:center;min-width:170px;
+    }
+    .timer-card .timer{font-weight:700;font-size:15px}
+    .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+    .btn{
+      background:linear-gradient(180deg,#fff,#f6f8ff);
+      border:1px solid #e6eefc;padding:8px 10px;border-radius:8px;font-weight:600;cursor:pointer;
+      box-shadow:0 2px 6px rgba(3,102,214,0.06);
+    }
+    .btn.ghost{background:transparent;border:1px dashed #dbeafe}
+    .btn.primary{background:linear-gradient(135deg,var(--accent-2),#0077e6);color:#fff;border:0}
+
+    .container {
+      width:95%;
+      max-width:1200px;
+      margin:10px auto 40px;
+    }
+
+    .section-header {
+      background: linear-gradient(135deg,#2c5282,var(--accent-2));
+      color: white;
+      padding: 12px;
+      margin: 18px 0 10px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    }
+
+    /* accordions and options */
+    .accordion { background:var(--card); border:1px solid #e6edf8;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+    .accordion-header{ width:100%; text-align:left; padding:14px 16px; background:#0066cc;color:#fff; border:0; font-weight:700; cursor:pointer; display:flex;justify-content:space-between; align-items:center; font-size:14px;}
+    .accordion-header:after{ content:'+'; font-size:18px; opacity:0.95}
+    .accordion-header[aria-expanded="true"]:after{ content:'−'; transform:rotate(0)}
+    .accordion-content{ padding:12px 16px; display:none; background:#fbfdff; animation:slideDown .22s ease; }
+    @keyframes slideDown{ from { opacity:0; transform:translateY(-6px);} to {opacity:1; transform:none;} }
+
+    .topic-badge{ display:inline-block; background:#3b82f6; color:white; padding:4px 8px; border-radius:12px; font-size:12px; margin-bottom:8px; font-weight:600 }
+    .option{ display:block; width:100%; text-align:left; padding:10px 12px; margin:6px 0; border-radius:8px; border:1px solid #e6eefb; background:transparent; cursor:pointer; font-weight:600; }
+    .option:hover{ background:#f8fbff; }
+    .option.selected{ outline:2px solid rgba(6,95,212,0.12); }
+    .option.correct{ background:linear-gradient(90deg,#ecfdf5,#d1fae5); border-color:#bbf7d0; color:var(--success) }
+    .option.incorrect{ background:linear-gradient(90deg,#fff1f2,#fee2e2); border-color:#fecaca; color:#b91c1c }
+
+    .correct-answer{ color:var(--success); font-weight:700; background:#f0fdf4; padding:8px 12px; border-radius:8px; margin-top:10px; display:none; }
+    .explanation{ margin-top:12px; background:linear-gradient(135deg,#f0f9ff,#f8fafc); padding:12px; border-left:4px solid #10b981; border-radius:6px; display:none; line-height:1.5 }
+
+    footer{ background: linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:#fff; text-align:center; padding:18px; margin-top:28px; border-radius:0 0 var(--radius) var(--radius);}
+
+    /* stats */
+    .stats{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:14px 0; }
+    .stat-card{ background:var(--card); padding:12px 16px; border-radius:8px; box-shadow:0 2px 6px var(--glass); text-align:center; min-width:120px }
+    .stat-number{ font-size:20px; font-weight:800; color:var(--accent-2) }
+    .stat-label{ font-size:12px; color:var(--muted) }
+
+    /* small screens */
+    @media (max-width:800px){
+      .menu-toggle{ display:inline-flex; }
+      .nav-links{ display:none; position:fixed; right:10px; top:64px; background:linear-gradient(180deg,#fff,#f7fbff); border-radius:8px; padding:10px; box-shadow:0 8px 24px rgba(3,102,214,0.12) }
+      .nav-links.active{ display:flex; flex-direction:column; gap:8px; }
+      header{ padding:12px 12px;}
+      .brand h1{ font-size:16px; }
+      .top-controls{ gap:8px; }
+    }
+
+    /* small utilities */
+    .muted{ color:var(--muted); font-size:13px }
+    .hidden{ display:none !important }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <div class="brand" aria-hidden="false">
+      <div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#fff,#e6f0ff);display:flex;align-items:center;justify-content:center;color:#003366;font-weight:800">UGC</div>
+      <div>
+        <h1>UGC NET Political Science Test Series</h1>
+        <p style="font-size:12px;opacity:.95;margin-top:4px">Designed by Arif Khan (JRF) — 150 Qs (Paper-2) + 50 Qs (Paper-1)</p>
+      </div>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+      <div class="nav-links" id="main-nav">
+        <a href="#tests" class="btn ghost">Tests</a>
+        <a href="#syllabus" class="btn ghost">Syllabus</a>
+        <a href="#about" class="btn ghost">About</a>
+        <a href="#contact" class="btn ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Top quick controls: timer, actions -->
+  <div class="top-controls" role="region" aria-label="Controls">
+    <div class="timer-card" role="status" aria-live="polite">
+      <div class="muted" style="font-size:13px">Exam Timer</div>
+      <div id="timer" class="timer">Time: 00:00</div>
+    </div>
+
+    <div class="controls" aria-hidden="false">
+      <button id="start-timer" class="btn primary">Start 90 min</button>
+      <button id="pause-timer" class="btn">Pause</button>
+      <button id="resume-timer" class="btn">Resume</button>
+      <button id="stop-timer" class="btn ghost">Reset</button>
+
+      <button id="expand-all" class="btn">Expand All</button>
+      <button id="collapse-all" class="btn">Collapse All</button>
+    </div>
+
+    <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+      <div class="stat-card" style="padding:8px 12px">
+        <div class="stat-number" id="answered-count">0</div>
+        <div class="stat-label">Answered</div>
+      </div>
+      <div class="stat-card" style="padding:8px 12px">
+        <div class="stat-number" id="score-count">0</div>
+        <div class="stat-label">Score</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container" id="tests" role="main" aria-label="Question area">
+    <!-- quick stats -->
+    <div class="stats" aria-hidden="false">
+      <div class="stat-card">
+        <div class="stat-number">150</div>
+        <div class="stat-label">Paper-2 Questions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50</div>
+        <div class="stat-label">Paper-1 Questions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">200</div>
+        <div class="stat-label">Total Questions</div>
+      </div>
+    </div>
+
+    <!-- container where script.js will render the questions -->
+    <div id="question-container" aria-live="polite"></div>
+  </main>
+
+  <footer role="contentinfo">
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="font-weight:700">UGC NET Political Science — Test Series</div>
+      <div style="font-size:13px;opacity:.95;margin-top:6px">Based on 2015 pattern — advanced/analytical versions provided. Good luck!</div>
+      <div style="margin-top:10px;font-size:12px;opacity:.85">© <span id="year"></span> TestSeries — All rights reserved</div>
+    </div>
+  </footer>
+
+  <!-- your script - place your script.js (the one I provided) in same folder -->
+  <script src="script.js" defer></script>
+
+  <!-- small inline wiring: hooks for timer and UI (will check for appTimer and quizUI presence) -->
+  <script>
+    // update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // menu toggle wiring (if script.js hasn't bound it)
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
+          if (navLinks.classList.contains('active')) {
+            const first = navLinks.querySelector('a, button');
+            if (first) first.focus();
+          }
+        });
+      }
+
+      // Timer control buttons — these call window.appTimer if available (script.js defines it)
+      const startBtn = document.getElementById('start-timer');
+      const pauseBtn = document.getElementById('pause-timer');
+      const resumeBtn = document.getElementById('resume-timer');
+      const stopBtn = document.getElementById('stop-timer');
+
+      startBtn?.addEventListener('click', () => {
+        // 90 minutes = 5400 seconds; change as required
+        if (window.appTimer && typeof window.appTimer.start === 'function') {
+          window.appTimer.start(90 * 60);
+        } else {
+          console.warn('appTimer not yet available — ensure script.js is loaded.');
+        }
+      });
+      pauseBtn?.addEventListener('click', () => window.appTimer?.pause?.());
+      resumeBtn?.addEventListener('click', () => window.appTimer?.resume?.());
+      stopBtn?.addEventListener('click', () => window.appTimer?.stop?.());
+
+      // Expand / Collapse
+      document.getElementById('expand-all')?.addEventListener('click', () => {
+        if (window.quizUI && typeof window.quizUI.expandAll === 'function') window.quizUI.expandAll();
+      });
+      document.getElementById('collapse-all')?.addEventListener('click', () => {
+        if (window.quizUI && typeof window.quizUI.collapseAll === 'function') window.quizUI.collapseAll();
+      });
+
+      // Answered & Score counters
+      const answeredCountEl = document.getElementById('answered-count');
+      const scoreCountEl = document.getElementById('score-count');
+
+      // Delegated listener to update counters when an option is clicked (script.js already disables options and shows .correct class)
+      document.body.addEventListener('click', (ev) => {
+        const opt = ev.target.closest('.option');
+        if (!opt) return;
+
+        // compute answered and score by scanning DOM (cheap but simple)
+        const allOptions = Array.from(document.querySelectorAll('.accordion'));
+        let answered = 0, score = 0;
+        allOptions.forEach(acc => {
+          const chosen = acc.querySelector('.option.selected');
+          if (chosen) {
+            answered++;
+            if (chosen.classList.contains('correct')) score++;
+          }
+        });
+        if (answeredCountEl) answeredCountEl.textContent = String(answered);
+        if (scoreCountEl) scoreCountEl.textContent = String(score);
+      });
+
+      // auto-scroll to top on load for clarity
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // If your script.js dispatches 'timer-ended' on #timer, you can catch it:
+    document.getElementById('timer')?.addEventListener('timer-ended', () => {
+      alert('Time is up! The timer has ended.');
+      // you can also auto-collapse or auto-submit here if you add those features in script.js
+    });
+  </script>
+</body>
+</html>
+
+          
