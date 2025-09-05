@@ -1,102 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UGC NET Portal</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-/* General Styling */
-body {font-family:'Roboto',sans-serif; margin:0; padding:0; background:#f7f7f7; color:#333;}
-header {background:#1e3d59; color:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:10;}
-header .logo {font-size:1.8rem; font-weight:bold;}
-header nav ul {list-style:none; display:flex; gap:20px; margin:0; padding:0;}
-header nav ul li a {color:#fff; text-decoration:none; font-weight:500;}
-header nav ul li a:hover {color:#ff8c42;}
-.hero {background: linear-gradient(to right, #6a11cb, #2575fc); color:#fff; padding:60px 20px; text-align:center;}
-.hero h1 {font-size:3rem; margin-bottom:15px;}
-.hero p {font-size:1.3rem; margin-bottom:30px;}
-.btn {background:#ff8c42; color:#fff; padding:12px 25px; border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s;}
-.btn:hover {background:#e6762d;}
-.section {padding:50px 20px; max-width:1200px; margin:auto;}
-.section h2 {font-size:2rem; margin-bottom:20px; color:#1e3d59; border-left:5px solid #ff8c42; padding-left:10px;}
-.cards {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.card {background:#fff; padding:25px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); width:280px; text-align:center;}
-.card h3 {margin-bottom:15px; color:#2575fc;}
-.card p {font-size:0.95rem; margin-bottom:20px; color:#333;}
-.card .btn {padding:10px 20px; font-size:0.9rem;}
-.year-buttons {display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:20px;}
-.year-buttons button {padding:8px 16px; border:none; border-radius:6px; background:#6a11cb; color:#fff; cursor:pointer; transition:0.3s;}
-.year-buttons button:hover {background:#2575fc;}
-.notifications ul {list-style:none; padding:0;}
-.notifications li {background:#f9f9f9; padding:10px; margin:5px 0; border-left:5px solid #2575fc;}
-footer {background:#1e3d59; color:#fff; padding:30px 20px; text-align:center; margin-top:50px;}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UGC NET Political Science — Test Series</title>
+
+  <style>
+    :root{
+      --bg:#f4f4f9;
+      --card:#fff;
+      --accent-1:#003366;
+      --accent-2:#3182ce;
+      --muted:#666;
+      --success:#059669;
+      --glass: rgba(0,0,0,0.06);
+      --radius:10px;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    html,body{height:100%;margin:0;background:var(--bg);color:#222;font-size:15px}
+    a{color:inherit;text-decoration:none}
+
+    header{
+      background: linear-gradient(135deg,var(--accent-1),#0066cc);
+      color:#fff;
+      padding:18px 16px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:90;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;opacity:0.95}
+
+    .nav{margin-left:auto;display:flex;gap:12px;align-items:center}
+
+    .menu-toggle{display:none;background:transparent;border:0;color:#fff;font-size:16px;padding:8px;border-radius:8px}
+    .menu-toggle:focus{outline:2px solid rgba(255,255,255,0.2)}
+
+    .nav-links{display:flex;gap:10px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:8px;background:transparent;color:#fff;font-weight:600;font-size:13px}
+    .nav-links a:hover{background:rgba(255,255,255,0.06)}
+
+    .top-controls{width:95%;max-width:1200px;margin:18px auto 4px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .timer-card{background:var(--card);padding:10px 14px;border-radius:8px;box-shadow:0 2px 8px var(--glass);display:flex;gap:8px;align-items:center;min-width:170px}
+    .timer-card .timer{font-weight:700;font-size:15px}
+    .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+    .btn{background:linear-gradient(180deg,#fff,#f6f8ff);border:1px solid #e6eefc;padding:8px 10px;border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 2px 6px rgba(3,102,214,0.06)}
+    .btn.ghost{background:transparent;border:1px dashed #dbeafe}
+    .btn.primary{background:linear-gradient(135deg,var(--accent-2),#0077e6);color:#fff;border:0}
+
+    .container{width:95%;max-width:1200px;margin:10px auto 40px}
+
+    .section-header{background: linear-gradient(135deg,#2c5282,var(--accent-2));color: white;padding: 12px;margin: 18px 0 10px 0;border-radius: 8px;font-size: 16px;font-weight: 700;text-align: center;box-shadow: 0 4px 6px rgba(0,0,0,0.08)}
+
+    .accordion{background:var(--card);border:1px solid #e6edf8;border-radius:10px;margin-bottom:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
+    .accordion-header{width:100%;text-align:left;padding:14px 16px;background:#0066cc;color:#fff;border:0;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+    .accordion-header:after{content:'+';font-size:18px;opacity:0.95}
+    .accordion-header[aria-expanded="true"]:after{content:'−';transform:rotate(0)}
+    .accordion-content{padding:12px 16px;display:none;background:#fbfdff;animation:slideDown .22s ease}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none}}
+
+    .topic-badge{display:inline-block;background:#3b82f6;color:white;padding:4px 8px;border-radius:12px;font-size:12px;margin-bottom:8px;font-weight:600}
+    .option{display:block;width:100%;text-align:left;padding:10px 12px;margin:6px 0;border-radius:8px;border:1px solid #e6eefb;background:transparent;cursor:pointer;font-weight:600}
+    .option:hover{background:#f8fbff}
+    .option.selected{outline:2px solid rgba(6,95,212,0.12)}
+    .option.correct{background:linear-gradient(90deg,#ecfdf5,#d1fae5);border-color:#bbf7d0;color:var(--success)}
+    .option.incorrect{background:linear-gradient(90deg,#fff1f2,#fee2e2);border-color:#fecaca;color:#b91c1c}
+
+    .correct-answer{color:var(--success);font-weight:700;background:#f0fdf4;padding:8px 12px;border-radius:8px;margin-top:10px;display:none}
+    .explanation{margin-top:12px;background:linear-gradient(135deg,#f0f9ff,#f8fafc);padding:12px;border-left:4px solid #10b981;border-radius:6px;display:none;line-height:1.5}
+
+    footer{background: linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#fff;text-align:center;padding:18px;margin-top:28px;border-radius:0 0 var(--radius) var(--radius)}
+
+    .stats{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+    .stat-card{background:var(--card);padding:12px 16px;border-radius:8px;box-shadow:0 2px 6px var(--glass);text-align:center;min-width:120px}
+    .stat-number{font-size:20px;font-weight:800;color:var(--accent-2)}
+    .stat-label{font-size:12px;color:var(--muted)}
+
+    @media (max-width:800px){.menu-toggle{display:inline-flex}.nav-links{display:none;position:fixed;right:10px;top:64px;background:linear-gradient(180deg,#fff,#f7fbff);border-radius:8px;padding:10px;box-shadow:0 8px 24px rgba(3,102,214,0.12)}.nav-links.active{display:flex;flex-direction:column;gap:8px}header{padding:12px 12px}.brand h1{font-size:16px}.top-controls{gap:8px}}
+
+    .muted{color:var(--muted);font-size:13px}
+    .hidden{display:none !important}
+
+    /* Modal styles */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:200}
+    .modal{background:var(--card);width:clamp(320px,86vw,720px);padding:18px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+    .modal h2{margin:0 0 8px}
+    .modal .modal-body{margin-top:8px}
+    .modal .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+
+    /* small focus outlines */
+    button:focus, .option:focus{outline:3px solid rgba(99,102,241,0.18);outline-offset:2px}
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">UGC NET Portal</div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#syllabus">Syllabus</a></li>
-      <li><a href="#quiz-section">Mock Tests</a></li>
-      <li><a href="#">Results</a></li>
-      <li><a href="#">Notifications</a></li>
-    </ul>
-  </nav>
-</header>
+  <a class="hidden" href="#question-container" id="skip-to-questions">Skip to questions</a>
 
-<section class="hero">
-  <h1>Prepare for UGC NET with Confidence</h1>
-  <p>Practice year-wise questions, take mock tests, and get instant explanations.</p>
-  <a href="#quiz-section" class="btn">Start Practicing</a>
-</section>
+  <header role="banner">
+    <div class="brand" aria-hidden="false">
+      <div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,#fff,#e6f0ff);display:flex;align-items:center;justify-content:center;color:#003366;font-weight:800">UGC</div>
+      <div>
+        <h1>UGC NET Political Science Test Series</h1>
+        <p style="font-size:12px;opacity:.95;margin-top:4px">Designed by Arif Khan (JRF) — 150 Qs (Paper-2) + 50 Qs (Paper-1)</p>
+      </div>
+    </div>
 
-<section class="section" id="syllabus">
-  <h2>Syllabus</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Political Science</h3>
-      <p>Download complete syllabus for all topics of Political Science.</p>
-      <a href="#" class="btn">View Syllabus</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <button class="menu-toggle btn" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+      <div class="nav-links" id="main-nav">
+        <a href="#tests" class="btn ghost">Tests</a>
+        <a href="#syllabus" class="btn ghost">Syllabus</a>
+        <a href="#about" class="btn ghost">About</a>
+        <a href="#contact" class="btn ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="top-controls" role="region" aria-label="Controls">
+    <div class="timer-card" role="status" aria-live="polite">
+      <div class="muted" style="font-size:13px">Exam Timer</div>
+      <div id="timer" class="timer">Time: 00:00</div>
     </div>
-    <div class="card">
-      <h3>History</h3>
-      <p>Complete syllabus with chapter-wise topics for History.</p>
-      <a href="#" class="btn">View Syllabus</a>
+
+    <div class="controls" aria-hidden="false">
+      <button id="start-timer" class="btn primary">Start 90 min</button>
+      <button id="pause-timer" class="btn">Pause</button>
+      <button id="resume-timer" class="btn">Resume</button>
+      <button id="stop-timer" class="btn ghost">Reset</button>
+
+      <button id="expand-all" class="btn">Expand All</button>
+      <button id="collapse-all" class="btn">Collapse All</button>
+
+      <button id="export-csv" class="btn">Export answers (CSV)</button>
     </div>
-    <div class="card">
-      <h3>Economics</h3>
-      <p>Download detailed Economics syllabus for all topics.</p>
-      <a href="#" class="btn">View Syllabus</a>
+
+    <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+      <div class="stat-card" style="padding:8px 12px">
+        <div class="stat-number" id="answered-count">0</div>
+        <div class="stat-label">Answered</div>
+      </div>
+      <div class="stat-card" style="padding:8px 12px">
+        <div class="stat-number" id="score-count">0</div>
+        <div class="stat-label">Score</div>
+      </div>
     </div>
   </div>
-</section>
 
-<section class="section" id="quiz-section">
-  <h2>Year-wise Quiz</h2>
-  <div class="year-buttons" id="yearButtons">
-    <!-- JS will generate year buttons -->
+  <main class="container" id="tests" role="main" aria-label="Question area">
+    <div class="stats" aria-hidden="false">
+      <div class="stat-card">
+        <div class="stat-number">150</div>
+        <div class="stat-label">Paper-2 Questions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50</div>
+        <div class="stat-label">Paper-1 Questions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">200</div>
+        <div class="stat-label">Total Questions</div>
+      </div>
+    </div>
+
+    <div id="question-container" aria-live="polite"></div>
+  </main>
+
+  <!-- Result modal -->
+  <div class="modal-backdrop" id="result-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2 id="modal-title">Test Summary</h2>
+      <div class="modal-body" id="modal-body">
+        <p id="modal-text">You answered <strong id="modal-answered">0</strong> questions. Score: <strong id="modal-score">0</strong> / <span id="modal-total">200</span></p>
+      </div>
+      <div class="modal-actions">
+        <button id="close-modal" class="btn">Close</button>
+        <button id="download-results" class="btn primary">Download CSV</button>
+      </div>
+    </div>
   </div>
-</section>
 
-<section class="section notifications">
-  <h2>Latest Notifications</h2>
-  <ul>
-    <li>01 Sep 2025: Exam dates announced.</li>
-    <li>28 Aug 2025: New mock tests available.</li>
-    <li>25 Aug 2025: Admit card release update.</li>
-  </ul>
-</section>
+  <footer role="contentinfo">
+    <div style="max-width:1000px;margin:0 auto">
+      <div style="font-weight:700">UGC NET Political Science — Test Series</div>
+      <div style="font-size:13px;opacity:.95;margin-top:6px">Based on 2015 pattern — advanced/analytical versions provided. Good luck!</div>
+      <div style="margin-top:10px;font-size:12px;opacity:.85">© <span id="year"></span> TestSeries — All rights reserved</div>
+    </div>
+  </footer>
 
-<footer>
-  <p>&copy; 2025 UGC NET Portal. All rights reserved.</p>
-  <p>Email: support@ugcnetportal.com | Phone: +91 12345 67890</p>
-</footer>
+  <script src="script.js" defer></script>
 
-<script src="data.js"></script>
-<script src="script.js" defer></script>
+  <script>
+    // UI wiring: small enhancements that use the DOM state created by script.js
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('active')));
+          if (navLinks.classList.contains('active')) {
+            const first = navLinks.querySelector('a, button');
+            if (first) first.focus();
+          }
+        });
+      }
+
+      // timer controls (script.js exposes window.appTimer)
+      document.getElementById('start-timer')?.addEventListener('click', () => window.appTimer?.start?.(90*60));
+      document.getElementById('pause-timer')?.addEventListener('click', () => window.appTimer?.pause?.());
+      document.getElementById('resume-timer')?.addEventListener('click', () => window.appTimer?.resume?.());
+      document.getElementById('stop-timer')?.addEventListener('click', () => window.appTimer?.stop?.());
+
+      // expand/collapse helpers
+      document.getElementById('expand-all')?.addEventListener('click', () => window.quizUI?.expandAll?.());
+      document.getElementById('collapse-all')?.addEventListener('click', () => window.quizUI?.collapseAll?.());
+
+      // export answers as CSV
+      document.getElementById('export-csv')?.addEventListener('click', () => {
+        const rows = [];
+        // header
+        rows.push(['Question ID','Question','Selected Option','Selected Index','Correct Option','Correct Index','Explanation']);
+        // iterate accordions
+        const accs = Array.from(document.querySelectorAll('.accordion'));
+        accs.forEach(acc => {
+          const qLabel = acc.querySelector('.accordion-header')?.textContent?.trim() || '';
+          const content = acc.querySelector('.accordion-content');
+          const selected = content?.querySelector('.option.selected');
+          const correctBtn = content?.querySelector('.option.correct');
+          const expl = content?.querySelector('.explanation')?.textContent?.trim() || '';
+          const selectedText = selected ? selected.textContent.trim() : '';
+          const selectedIdx = selected ? selected.getAttribute('data-idx') : '';
+          const correctText = correctBtn ? correctBtn.textContent.trim() : '';
+          const correctIdx = correctBtn ? correctBtn.getAttribute('data-idx') : '';
+          rows.push([qLabel, qLabel, selectedText, selectedIdx, correctText, correctIdx, expl]);
+        });
+        const csv = rows.map(r => r.map(cell => '"' + String(cell || '').replace(/"/g,'""') + '"').join(',')).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'ugcnet_answers.csv'; document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+      });
+
+      // update counters when options clicked (delegated)
+      const answeredCountEl = document.getElementById('answered-count');
+      const scoreCountEl = document.getElementById('score-count');
+
+      document.body.addEventListener('click', (ev) => {
+        const opt = ev.target.closest('.option');
+        if (!opt) return;
+        // compute simple counts by scanning DOM
+        const accs = Array.from(document.querySelectorAll('.accordion'));
+        let answered = 0, score = 0;
+        accs.forEach(acc => {
+          const chosen = acc.querySelector('.option.selected');
+          if (chosen) {
+            answered++;
+            if (chosen.classList.contains('correct')) score++;
+          }
+        });
+        answeredCountEl.textContent = String(answered);
+        scoreCountEl.textContent = String(score);
+      });
+
+      // when timer ends, auto-summarize and open modal
+      const timerEl = document.getElementById('timer');
+      timerEl?.addEventListener('timer-ended', () => {
+        showResultsModal(true);
+      });
+
+      // modal wiring
+      const modalBackdrop = document.getElementById('result-modal');
+      const closeModalBtn = document.getElementById('close-modal');
+      const downloadResultsBtn = document.getElementById('download-results');
+
+      function showResultsModal(autoSubmitted = false) {
+        // compute
+        const accs = Array.from(document.querySelectorAll('.accordion'));
+        let answered = 0, score = 0, total = accs.length;
+        accs.forEach(acc => {
+          const chosen = acc.querySelector('.option.selected');
+          if (chosen) { answered++; if (chosen.classList.contains('correct')) score++; }
+        });
+        document.getElementById('modal-answered').textContent = String(answered);
+        document.getElementById('modal-score').textContent = String(score);
+        document.getElementById('modal-total').textContent = String(total);
+        modalBackdrop.style.display = 'flex';
+        modalBackdrop.setAttribute('aria-hidden','false');
+        document.getElementById('close-modal').focus();
+      }
+
+      function hideResultsModal() { const modalBackdrop = document.getElementById('result-modal'); modalBackdrop.style.display = 'none'; modalBackdrop.setAttribute('aria-hidden','true'); }
+
+      closeModalBtn?.addEventListener('click', hideResultsModal);
+
+      downloadResultsBtn?.addEventListener('click', () => {
+        // trigger the CSV export button
+        document.getElementById('export-csv')?.click();
+      });
+
+      // keyboard navigation for options (arrow up/down, enter to select)
+      document.body.addEventListener('keydown', (ev) => {
+        const active = document.activeElement;
+        if (!active) return;
+        if (!active.classList.contains('option')) return;
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+          ev.preventDefault();
+          const opts = Array.from(active.parentElement.querySelectorAll('.option'));
+          const idx = opts.indexOf(active);
+          if (idx === -1) return;
+          const nextIdx = ev.key === 'ArrowDown' ? Math.min(opts.length-1, idx+1) : Math.max(0, idx-1);
+          opts[nextIdx].focus();
+        } else if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          active.click();
+        }
+      });
+
+      // allow quick submit button (user-initiated)
+      const quickSubmit = document.createElement('button');
+      quickSubmit.className = 'btn ghost'; quickSubmit.textContent = 'Submit Now';
+      quickSubmit.style.marginLeft = '8px';
+      document.querySelector('.controls')?.appendChild(quickSubmit);
+      quickSubmit.addEventListener('click', () => showResultsModal(false));
+
+      // optional: auto-scroll first opened question into view
+      document.getElementById('question-container')?.addEventListener('click', (ev) => {
+        const hdr = ev.target.closest('.accordion-header');
+        if (hdr) {
+          setTimeout(() => hdr.scrollIntoView({behavior:'smooth',block:'center'}), 80);
+        }
+      });
+
+      // accessible skip link behaviour
+      document.getElementById('skip-to-questions')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('question-container')?.focus(); });
+    });
+
+    // close modal on ESC
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { const m = document.getElementById('result-modal'); if (m && m.style.display === 'flex') document.getElementById('close-modal')?.click(); }});
+  </script>
 </body>
 </html>
